@@ -1,5 +1,5 @@
 import './App.css'
-
+import LoadingPage from './Z-Loading/AudioCheck'
 
 
 
@@ -9,6 +9,6 @@ import './App.css'
 
 export default function App() {
   return(
-    
+    <LoadingPage/>
   )
 }
