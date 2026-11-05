@@ -1,4 +1,5 @@
 import { useEffect } from "react"
+import Walk_away_from_computer from "../Animations/WalkAwayFromComputer"
 
 
 export default function Desktop({onComputer, setOnComputer}){
@@ -41,6 +42,9 @@ export default function Desktop({onComputer, setOnComputer}){
                 </div>
 
                 )}
+
+
+                {!onComputer && <Walk_away_from_computer/>}
         </>
     )
 }

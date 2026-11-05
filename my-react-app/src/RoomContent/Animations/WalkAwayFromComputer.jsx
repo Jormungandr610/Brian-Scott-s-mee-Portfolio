@@ -1,21 +1,20 @@
 import { useState } from "react"
 
-const [playing, setPlaying] = useState(false)
+export default function Walk_away_from_computer(){
 
-export default function walk_to_computer(){
     const [playing, setPlaying] = useState(true)
-    return(
 
+    return(
         <>
             {playing && (
                 <video
+                className="walk_away_from_computer"
                 src=""
                 autoPlay
                 onEnded={() => {
                     setPlaying(false)
                 }} />
             )}
-        </>
-        
+        </>  
     )
 }
