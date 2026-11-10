@@ -12,9 +12,18 @@ import Room from '../RoomContent/room';
 export default function LoadingPage() {
     const [loading, setLoading] = useState(true);
     const [roomReady, setRoomReady] = useState(false);
+    const [fullscreen, setFullscreen] = useState(false)
+    const [requestTxt, setTxt] = useState(
+        'Please transition into full screen for the intended experiance!'
+    )
+
 
     useEffect(() => {
         async function checkLoading() {
+
+            const minimumWaitTime = new Promise(resolve => {
+                setTimeout(resolve, 10000);
+            });
 
             // Wait for the browser's initial resources.
             if (document.readyState !== 'complete') {
@@ -43,14 +52,15 @@ export default function LoadingPage() {
             await document.fonts.ready;
 
             // Only remove the loading screen when Room has rendered too.
-            if (roomReady) {
+            if (roomReady && fullscreen) {
+                await minimumWaitTime;
                 setLoading(false);
             }
         }
 
         checkLoading();
 
-    }, [roomReady]);
+    }, [roomReady, fullscreen]);
 
     return (
         <>
@@ -66,6 +76,20 @@ export default function LoadingPage() {
                     <h4>Unless you don't wish to hear me, I suppose...</h4>
 
                     <img src="/images/loading.gif" alt="Loading..." />
+
+                    {/* the request for fullscreen activaction */}
+                    <button 
+                    className='fullscreenRequest'
+                    onClick={() => {
+                        document.documentElement.requestFullscreen()
+                        setFullscreen(true)
+                        setTxt(requestTxt ===
+                            'Please transition into full screen for the intended experiance!'
+                            ? 'Thank you!'
+                            : requestTxt)
+                    }}>
+                        {requestTxt}
+                    </button>
                 </div>
             )}
         </>
