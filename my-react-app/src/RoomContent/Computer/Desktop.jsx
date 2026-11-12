@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react"
-import Walk_away_from_computer from "../Animations/WalkAwayFromComputer"
-import Project1 from 
-import Project2 from 
-import Project3 from 
-import Project4 from 
+
+
+import Project1 from './Projects/Project1'
+import Project2 from './Projects/Project2'
+import Project3 from './Projects/Project3'
+import Project4 from './Projects/Project4'
 
 
 
@@ -15,13 +16,19 @@ export default function Desktop({onComputer, setOnComputer}){
     const [viewingProject4, setView4] = useState(false)
 
     const [position, setPosition] = useState({ x: 100, y: 100 });
+    const [position, setPosition] = useState({ x: 100, y: 100 });
+    const [position, setPosition] = useState({ x: 100, y: 100 });
+    const [position, setPosition] = useState({ x: 100, y: 100 });
+
     const [dragging, setDragging] = useState(false);
+
 
 
     useEffect(() => {
         function stepBackFromComputer(back){
             if(back.key === 'b' || back.key === 'B'){
                 setOnComputer(false)
+                
             }
         }
 
@@ -35,16 +42,16 @@ export default function Desktop({onComputer, setOnComputer}){
 
 
     return(
-
-
+        
         <>
+           
             {onComputer && (
-                
-
+               
                 <div 
                 className="monitor_close_up">
-                    <img src="j" alt="Close up on Monitor"/>
-
+            
+                    <img src="" alt="Close up on Monitor"/>
+                    
                     <div 
                     className="screen">
                         <div 
@@ -53,9 +60,9 @@ export default function Desktop({onComputer, setOnComputer}){
                                                                         {/* project 1 */}
                             <img
                             id="project1"
-                            src="j" 
-                            alt="Project" 
-                            onDoubleClick={setView1(true)}
+                            src="" 
+                            alt="Project1" 
+                            onDoubleClick={() => {setView1(true)}}
                             draggable={false}
                             onPointerDown={(event) => {
                                 setDragging(true);
@@ -84,9 +91,9 @@ export default function Desktop({onComputer, setOnComputer}){
                                                                         {/* project 2 */}
                             <img
                             id="project2"
-                            src="j" 
-                            alt="Project" 
-                            onDoubleClick={setView2(true)}
+                            src="" 
+                            alt="Project2" 
+                            onDoubleClick={() => {setView2(true)}}
                             draggable={false}
                             onPointerDown={(event) => {
                                 setDragging(true);
@@ -115,9 +122,9 @@ export default function Desktop({onComputer, setOnComputer}){
                                                                         {/* project 3 */}
                             <img
                             id="project3"
-                            src="j" 
-                            alt="Project" 
-                            onDoubleClick={setView3(true)}
+                            src="" 
+                            alt="Project3" 
+                            onDoubleClick={() => {setView3(true)}}
                             draggable={false}
                             onPointerDown={(event) => {
                                 setDragging(true);
@@ -145,9 +152,9 @@ export default function Desktop({onComputer, setOnComputer}){
                                                                         {/* project 4 */}
                             <img
                             id="project4"
-                            src="j" 
-                            alt="Project" 
-                            onDoubleClick={setView4(true)}
+                            src="" 
+                            alt="Project4" 
+                            onDoubleClick={() => {setView4(true)}}
                             draggable={false}
                             onPointerDown={(event) => {
                                 setDragging(true);
@@ -192,10 +199,9 @@ export default function Desktop({onComputer, setOnComputer}){
                     </div>
 
                 </div>
+
             )}
-
-
-                {!onComputer && <Walk_away_from_computer/>}
+               
         </>
     )
 }

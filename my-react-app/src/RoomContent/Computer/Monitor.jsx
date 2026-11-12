@@ -1,20 +1,20 @@
-import Walk_to_computer from '../Animations/WalkToComputer'
 
 export default function Monitor({onComputer, setOnComputer}){
 
-
+    console.log({onComputer})
     return (
         <>
-            <div
-            className="monitor" 
-            onClick={() => { 
-                setOnComputer(true)
-            }}>
-                <img src="" alt="Computer"/>
-            </div>
 
-        
-                {onComputer && <Walk_to_computer />}
+            {!onComputer && (
+                <div
+                className="monitor" 
+                onClick={() => { 
+                    setOnComputer(true)
+                }}>
+                    <img src="" alt="Computer"/>
+                </div>
+            )}
+            
         </>
 
     )

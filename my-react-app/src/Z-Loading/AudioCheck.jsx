@@ -22,7 +22,7 @@ export default function LoadingPage() {
         async function checkLoading() {
 
             const minimumWaitTime = new Promise(resolve => {
-                setTimeout(resolve, 10000);
+                setTimeout(resolve, 10);
             });
 
             // Wait for the browser's initial resources.
