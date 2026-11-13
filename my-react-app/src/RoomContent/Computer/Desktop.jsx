@@ -6,24 +6,36 @@ import Project2 from './Projects/Project2'
 import Project3 from './Projects/Project3'
 import Project4 from './Projects/Project4'
 
+import Clock from './ActiveClock.jsx'
+
 
 
 export default function Desktop({onComputer, setOnComputer}){
+
 
     const [viewingProject1, setView1] = useState(false)
     const [viewingProject2, setView2] = useState(false)
     const [viewingProject3, setView3] = useState(false)
     const [viewingProject4, setView4] = useState(false)
 
-    const [position, setPosition] = useState({ x: 100, y: 100 });
-    const [position, setPosition] = useState({ x: 100, y: 100 });
-    const [position, setPosition] = useState({ x: 100, y: 100 });
-    const [position, setPosition] = useState({ x: 100, y: 100 });
+    const [activePage1, setPage1] = useState(false)
+    const [activePage2, setPage2] = useState(false)
+    const [activePage3, setPage3] = useState(false)
+    const [activePage4, setPage4] = useState(false)
+
+
+
+    const taskbar_popup = []
+
+    const [position1, setPosition1] = useState({ x: 100, y: 100 });
+    const [position2, setPosition2] = useState({ x: 150, y: 100 });
+    const [position3, setPosition3] = useState({ x: 200, y: 100 });
+    const [position4, setPosition4] = useState({ x: 250, y: 100 });
 
     const [dragging, setDragging] = useState(false);
 
 
-
+    //exiting the desktop
     useEffect(() => {
         function stepBackFromComputer(back){
             if(back.key === 'b' || back.key === 'B'){
@@ -38,6 +50,10 @@ export default function Desktop({onComputer, setOnComputer}){
             window.removeEventListener('keydown', stepBackFromComputer)
         }
     }, [setOnComputer])
+
+    useEffect(() => {
+        
+    }, [])
 
 
 
@@ -54,6 +70,7 @@ export default function Desktop({onComputer, setOnComputer}){
                     
                     <div 
                     className="screen">
+
                         <div 
                         className="icons">
 
@@ -70,7 +87,7 @@ export default function Desktop({onComputer, setOnComputer}){
                             }}
                             onPointerMove={(event) => {
                                 if (dragging) {
-                                    setPosition({
+                                    setPosition1({
                                         x: event.clientX - 50,
                                         y: event.clientY - 50
                                     });
@@ -79,8 +96,8 @@ export default function Desktop({onComputer, setOnComputer}){
                             onPointerUp={() => setDragging(false)}
                             style={{
                                 position: 'fixed',
-                                left: position.x,
-                                top: position.y,
+                                left: position1.x,
+                                top: position1.y,
                                 width: '100px',
                                 cursor: dragging ? 'grabbing' : 'grab',
                                 touchAction: 'none',
@@ -101,7 +118,7 @@ export default function Desktop({onComputer, setOnComputer}){
                             }}
                             onPointerMove={(event) => {
                                 if (dragging) {
-                                    setPosition({
+                                    setPosition2({
                                         x: event.clientX - 50,
                                         y: event.clientY - 50
                                     });
@@ -110,8 +127,8 @@ export default function Desktop({onComputer, setOnComputer}){
                             onPointerUp={() => setDragging(false)}
                             style={{
                                 position: 'fixed',
-                                left: position.x,
-                                top: position.y,
+                                left: position2.x,
+                                top: position2.y,
                                 width: '100px',
                                 cursor: dragging ? 'grabbing' : 'grab',
                                 touchAction: 'none',
@@ -132,7 +149,7 @@ export default function Desktop({onComputer, setOnComputer}){
                             }}
                             onPointerMove={(event) => {
                                 if (dragging) {
-                                    setPosition({
+                                    setPosition3({
                                         x: event.clientX - 50,
                                         y: event.clientY - 50
                                     });
@@ -141,8 +158,8 @@ export default function Desktop({onComputer, setOnComputer}){
                             onPointerUp={() => setDragging(false)}
                             style={{
                                 position: 'fixed',
-                                left: position.x,
-                                top: position.y,
+                                left: position3.x,
+                                top: position3.y,
                                 width: '100px',
                                 cursor: dragging ? 'grabbing' : 'grab',
                                 touchAction: 'none',
@@ -162,7 +179,7 @@ export default function Desktop({onComputer, setOnComputer}){
                             }}
                             onPointerMove={(event) => {
                                 if (dragging) {
-                                    setPosition({
+                                    setPosition4({
                                         x: event.clientX - 50,
                                         y: event.clientY - 50
                                     });
@@ -171,8 +188,8 @@ export default function Desktop({onComputer, setOnComputer}){
                             onPointerUp={() => setDragging(false)}
                             style={{
                                 position: 'fixed',
-                                left: position.x,
-                                top: position.y,
+                                left: position4.x,
+                                top: position4.y,
                                 width: '100px',
                                 cursor: dragging ? 'grabbing' : 'grab',
                                 touchAction: 'none',
@@ -181,20 +198,32 @@ export default function Desktop({onComputer, setOnComputer}){
                         </div>
 
                         {viewingProject1 && (
-                            <Project1/>
+                            <Project1 viewingProject1={viewingProject1} setView1={setView1}/>
+
                         )}
 
                         {viewingProject2 && (
-                            <Project2/>
+                            <Project2 viewingProject2={viewingProject2} setView2={setView2}/>
                         )}
 
                         {viewingProject3 && (
-                            <Project3/>
+                            <Project3 viewingProject3={viewingProject3} setView3={setView3}/>
                         )}
 
                         {viewingProject4 && (
-                            <Project4/>
+                            <Project4 viewingProject4={viewingProject4} setView4={setView4}/>
                         )}
+
+                        
+
+                        <div
+                        className="taskbar">
+
+                            
+
+                            <Clock/>
+
+                        </div>
 
                     </div>
 

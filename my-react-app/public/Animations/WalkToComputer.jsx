@@ -1,4 +1,5 @@
 import { useState } from "react"
+import video from './videoplayback.mp4'
 
 export default function Walk_to_computer(){
 
@@ -9,7 +10,7 @@ export default function Walk_to_computer(){
             {playing && (
                 <video
                 className="walk_to_computer"
-                src=""
+                src={video}
                 autoPlay
                 onEnded={() => {
                     setPlaying(false)

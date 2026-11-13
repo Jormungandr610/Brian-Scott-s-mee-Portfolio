@@ -1,9 +1,39 @@
 
 
-export default function Project1(){
+export default function Project1({viewingProject1, setView1}){
     return(
+      
         <div 
-        className="project1-page">
+        className="project-page">
+
+            <div
+            className="exitingbuttons">
+
+                <button
+                className="minimizeproject"
+                onClick={() =>
+                    setView1(false)
+                    }>
+                        -
+                </button>
+
+                <button
+                className="strinkproject"
+                onClick={() =>
+                    setView1(false)
+                    }>
+                        []
+                </button>
+
+                <button
+                className="exitproject"
+                onClick={() =>
+                    setView1(false)
+                    }>
+                        X
+                </button>
+
+            </div>
 
             <div 
             className="contentbox">
@@ -123,5 +153,7 @@ export default function Project1(){
             </div>
 
         </div>
+        
+       
     )
 }

@@ -1,9 +1,17 @@
 
 
-export default function Project3(){
+export default function Project3({viewingProject3, setView3}){
     return(
         <div 
-        className="project3-page">
+        className="project-page">
+
+            <button
+            className="exitproject"
+            onClick={() =>
+                setView3(false)
+                }>
+                    X
+            </button>
 
             <div 
             className="contentbox">

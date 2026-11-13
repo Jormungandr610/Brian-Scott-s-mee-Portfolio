@@ -1,9 +1,17 @@
 
 
-export default function Project4(){
+export default function Project4({viewingProject4, setView4}){
     return(
         <div 
-        className="project4-page">
+        className="project-page">
+
+            <button
+            className="exitproject"
+            onClick={() =>
+                setView4(false)
+                }>
+                    X
+            </button>
 
             <div 
             className="contentbox">
