@@ -6,6 +6,11 @@ import Project2 from './Projects/Project2'
 import Project3 from './Projects/Project3'
 import Project4 from './Projects/Project4'
 
+// import Icon1 from '.Images'
+// import Icon2 from '.Images'
+// import Icon3 from '.Images'
+// import Icon4 from '.Images'
+
 import Clock from './ActiveClock.jsx'
 
 
@@ -18,14 +23,11 @@ export default function Desktop({onComputer, setOnComputer}){
     const [viewingProject3, setView3] = useState(false)
     const [viewingProject4, setView4] = useState(false)
 
-    const [activePage1, setPage1] = useState(false)
-    const [activePage2, setPage2] = useState(false)
-    const [activePage3, setPage3] = useState(false)
-    const [activePage4, setPage4] = useState(false)
+    const [activePopup1, setPopup1] = useState(false)
+    const [activePopup2, setPopup2] = useState(false)
+    const [activePopup3, setPopup3] = useState(false)
+    const [activePopup4, setPopup4] = useState(false)
 
-
-
-    const taskbar_popup = []
 
     const [position1, setPosition1] = useState({ x: 100, y: 100 });
     const [position2, setPosition2] = useState({ x: 150, y: 100 });
@@ -79,7 +81,10 @@ export default function Desktop({onComputer, setOnComputer}){
                             id="project1"
                             src="" 
                             alt="Project1" 
-                            onDoubleClick={() => {setView1(true)}}
+                            onDoubleClick={() => {
+                                {setView1(true)}
+                                {setPopup1(true)}
+                            }}
                             draggable={false}
                             onPointerDown={(event) => {
                                 setDragging(true);
@@ -110,7 +115,10 @@ export default function Desktop({onComputer, setOnComputer}){
                             id="project2"
                             src="" 
                             alt="Project2" 
-                            onDoubleClick={() => {setView2(true)}}
+                            onDoubleClick={() => {
+                                {setView2(true)}
+                                {setPopup2(true)}
+                            }}
                             draggable={false}
                             onPointerDown={(event) => {
                                 setDragging(true);
@@ -141,7 +149,10 @@ export default function Desktop({onComputer, setOnComputer}){
                             id="project3"
                             src="" 
                             alt="Project3" 
-                            onDoubleClick={() => {setView3(true)}}
+                            onDoubleClick={() => {
+                                {setView3(true)}
+                                {setPopup3(true)}
+                            }}
                             draggable={false}
                             onPointerDown={(event) => {
                                 setDragging(true);
@@ -171,7 +182,10 @@ export default function Desktop({onComputer, setOnComputer}){
                             id="project4"
                             src="" 
                             alt="Project4" 
-                            onDoubleClick={() => {setView4(true)}}
+                            onDoubleClick={() => {
+                                {setView4(true)}
+                                {setPopup4(true)}
+                            }}
                             draggable={false}
                             onPointerDown={(event) => {
                                 setDragging(true);
@@ -198,20 +212,44 @@ export default function Desktop({onComputer, setOnComputer}){
                         </div>
 
                         {viewingProject1 && (
-                            <Project1 viewingProject1={viewingProject1} setView1={setView1}/>
+                            <Project1 
+                            viewingProject1={viewingProject1} 
+                            setView1={setView1} 
+
+                            activePopup1={activePopup1} 
+                            setPopup1={setPopup1}
+                            />
 
                         )}
 
                         {viewingProject2 && (
-                            <Project2 viewingProject2={viewingProject2} setView2={setView2}/>
+                            <Project2 
+                            viewingProject2={viewingProject2}
+                            setView2={setView2}
+                            
+                            activePopup2={activePopup2}
+                            setPopup2={setPopup2}
+                            />
                         )}
 
                         {viewingProject3 && (
-                            <Project3 viewingProject3={viewingProject3} setView3={setView3}/>
+                            <Project3 
+                            viewingProject3={viewingProject3} 
+                            setView3={setView3} 
+
+                            activePopup3={activePopup3} 
+                            setPopup3={setPopup3}
+                            />
                         )}
 
                         {viewingProject4 && (
-                            <Project4 viewingProject4={viewingProject4} setView4={setView4}/>
+                            <Project4 
+                            viewingProject4={viewingProject4} 
+                            setView4={setView4} 
+
+                            activePopup4={activePopup4} 
+                            setPopup4={setPopup4}
+                            />
                         )}
 
                         
@@ -219,7 +257,21 @@ export default function Desktop({onComputer, setOnComputer}){
                         <div
                         className="taskbar">
 
-                            
+                            {activePopup1 && (
+                                
+                            )}
+
+                            {activePopup2 && (
+                                
+                            )}
+
+                            {activePopup3 && (
+                               
+                            )}
+
+                            {activePopup4 && (
+                                
+                            )}
 
                             <Clock/>
 

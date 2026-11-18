@@ -1,6 +1,6 @@
 
 
-export default function Project2({viewingProject2, setView2}){
+export default function Project2({viewingProject2, setView2}, {activePopup2, setPopup2}){
     return(
         <div 
         className="project-page">

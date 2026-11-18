@@ -1,6 +1,6 @@
 
 
-export default function Project1({viewingProject1, setView1}){
+export default function Project1({viewingProject1, setView1}, {activePopup1, setPopup1}){
     return(
       
         <div 
@@ -13,6 +13,7 @@ export default function Project1({viewingProject1, setView1}){
                 className="minimizeproject"
                 onClick={() =>
                     setView1(false)
+                    
                     }>
                         -
                 </button>
