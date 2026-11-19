@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react"
 
+import * as Popups from "./TaskbarPopups.jsx"
+
 
 import Project1 from './Projects/Project1'
 import Project2 from './Projects/Project2'
