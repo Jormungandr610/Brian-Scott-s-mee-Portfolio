@@ -1,11 +1,11 @@
 import {useState} from 'react'
 
-export default function TaskbarPopups(){
-    const [taskbar_popup, setTaskbarPopup] = useState([]);
+export default function useTaskbarPopups(){
+    const [taskbar_popups, setTaskbarPopup] = useState([]);
 
 
     function addPopUp(icon){
-        if (!taskbar_popup.includes(icon)) {
+        if (!taskbar_popups.includes(icon)) {
             setTaskbarPopup(currPopups => [...currPopups, icon])
         }
 }
@@ -13,10 +13,11 @@ export default function TaskbarPopups(){
         setTaskbarPopup(currPopups => [...currPopups.filter((popup) => popup !== icon)])
     }
 
-    return(
+    return{
         addPopUp,
-        removePopUp
-    )
+        removePopUp,
+        taskbar_popups
+    }
 }
 
 

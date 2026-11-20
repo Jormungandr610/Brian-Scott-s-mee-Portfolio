@@ -1,7 +1,5 @@
 import { useEffect, useState } from "react"
 
-import * as Popups from "./TaskbarPopups.jsx"
-
 
 import Project1 from './Projects/Project1'
 import Project2 from './Projects/Project2'
@@ -14,11 +12,14 @@ import Project4 from './Projects/Project4'
 // import Icon4 from '.Images'
 
 import Clock from './ActiveClock.jsx'
+import useTaskbarPopups from "./TaskbarPopups.jsx"
+
 
 
 
 export default function Desktop({onComputer, setOnComputer}){
 
+    const Popups = useTaskbarPopups();
 
     const [viewingProject1, setView1] = useState(false)
     const [viewingProject2, setView2] = useState(false)
@@ -86,6 +87,7 @@ export default function Desktop({onComputer, setOnComputer}){
                             onDoubleClick={() => {
                                 {setView1(true)}
                                 {setPopup1(true)}
+                                {Popups.addPopUp('project1')}
                             }}
                             draggable={false}
                             onPointerDown={(event) => {
@@ -120,6 +122,7 @@ export default function Desktop({onComputer, setOnComputer}){
                             onDoubleClick={() => {
                                 {setView2(true)}
                                 {setPopup2(true)}
+                                {Popups.addPopUp('project2')}
                             }}
                             draggable={false}
                             onPointerDown={(event) => {
@@ -154,6 +157,7 @@ export default function Desktop({onComputer, setOnComputer}){
                             onDoubleClick={() => {
                                 {setView3(true)}
                                 {setPopup3(true)}
+                                {Popups.addPopUp('project3')}
                             }}
                             draggable={false}
                             onPointerDown={(event) => {
@@ -187,6 +191,7 @@ export default function Desktop({onComputer, setOnComputer}){
                             onDoubleClick={() => {
                                 {setView4(true)}
                                 {setPopup4(true)}
+                                {Popups.addPopUp('project4')}
                             }}
                             draggable={false}
                             onPointerDown={(event) => {
@@ -259,21 +264,15 @@ export default function Desktop({onComputer, setOnComputer}){
                         <div
                         className="taskbar">
 
-                            {activePopup1 && (
-                                
-                            )}
+                           <div>
 
-                            {activePopup2 && (
-                                
-                            )}
+                            {Popups.taskbar_popups.map((popup, index) => (
+                                <div key={index}>
+                                    {popup}
+                                </div>
+                            ))}
 
-                            {activePopup3 && (
-                               
-                            )}
-
-                            {activePopup4 && (
-                                
-                            )}
+                           </div>
 
                             <Clock/>
 
